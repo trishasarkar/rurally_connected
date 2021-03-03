@@ -1,16 +1,16 @@
 <?php
 include "connect.php";
-if(isset($_POST['submit_login_benef'])){
+if(isset($_POST['submit_login_company'])){
 	// echo "in if";
-	$benef_emailid = $_POST['benef_emailid'];
-	$benef_password = $_POST['benef_password'];
-	$query = mysqli_query($con, "SELECT * FROM beneficiaries_details WHERE benef_emailid = '$benef_emailid' AND benef_password = '$benef_password'") or die(mysqli_error($con));;
+	$company_emailid = $_POST['company_emailid'];
+	$company_password = $_POST['company_password'];
+	$query = mysqli_query($con, "SELECT * FROM companies_details WHERE company_emailid = '$company_emailid' AND company_password = '$company_password'") or die(mysqli_error($con));;
 	$num_rows = mysqli_num_rows($query);
 	$row = mysqli_fetch_array($query);
 	if($num_rows > 0){
-		$_SESSION["id"] = $row['benef_id'];
+		$_SESSION["id"] = $row['company_id'];
 		$_SESSION["success"] = 'You are now logged in';
-		echo $row['benef_id'];
+		echo $row['company_id'];
 		?>
 		<script>
 			alert('Successfully logged in');
@@ -43,24 +43,24 @@ if(isset($_POST['submit_login_benef'])){
 			<div class="wrap-login100 p-t-85 p-b-20">
 				<form method="post" class="login100-form validate-form">
 					<span class="login100-form-title p-b-70">
-						Welcome Beneficiary
+						Welcome
 					</span>
 					<span class="login100-form-avatar">
 						<img src="images/pngegg.png" alt="AVATAR">
 					</span>
 
 					<div class="wrap-input100 validate-input m-t-85 m-b-35">
-						<input class="input100" type="email" name="benef_emailid" required>
+						<input class="input100" type="email" name="company_emailid" required>
 						<!-- <span class="focus-input100" data-placeholder="Username"></span> -->
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-50" >
-						<input class="input100" type="password" name="benef_password" required>
+						<input class="input100" type="password" name="company_password" required>
 						<!-- <span class="focus-input100" data-placeholder="Password"></span> -->
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button type="submit" class="login100-form-btn" name="submit_login_benef">Login</button>
+						<button type="submit" class="login100-form-btn" name="submit_login_company">Login</button>
 					</div>
 
 					<div class="login-more p-t-190">
@@ -68,7 +68,7 @@ if(isset($_POST['submit_login_benef'])){
 								Don’t have an account?
 							</span>
 
-							<a href="benef_register.php" class="txt2">
+							<a href="company_register.php" class="txt2">
 								Sign up
 							</a>
 						

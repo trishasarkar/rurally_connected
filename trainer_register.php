@@ -58,3 +58,33 @@
 </body>
 
 </html>
+<?php
+include "connect.php";
+if(isset($_POST['submit_register_trainer'])){
+	$trainer_name = $_POST['trainer_name'];
+	$trainer_emailid = $_POST['trainer_emailid'];
+	$trainer_mobilenumber = $_POST['trainer_mobilenumber'];
+	$trainer_password1 = $_POST['trainer_password1'];
+	$trainer_password2 = $_POST['trainer_password2'];
+	$trainer_location = $_POST['trainer_location'];
+	$trainer_skills = $_POST['trainer_skills'];
+
+	if($trainer_password1 != $trainer_password2){
+		?>
+		<script type="text/javascript">
+			alert("The passwords do not match");
+		</script>
+	<?php
+	}else{
+		$query = "INSERT INTO trainer(trainer_name,trainer_email,trainer_number,trainer_password,trainer_location,trainer_skills) 
+		VALUES ('$trainer_name','$trainer_emailid','$trainer_mobilenumber','$trainer_password1','$trainer_location','$trainer_skills')";
+		mysqli_query($con, $query) or die(mysqli_error($con));
+		?>
+		<script type="text/javascript">
+			window.location = 'trainer_login.php';
+			alert("Successfully Added.");
+		</script>
+<?php
+	}
+}
+?>
