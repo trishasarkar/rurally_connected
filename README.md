@@ -1,7 +1,7 @@
 # Rurally connected
 * A web application which aims to motivate the rural youth to pursue agriculture or handicrafts, bring their products to a global audience and provide employment qualified individuals
 * This website is a partial prototype which we pitched at the Chhatra Vishwakarma Awards 2021 by AICTE India, where we were State Level Qualifiers
-* This user interface is a schematic representation only 
+* This user interface is for a schematic representation only 
 
 ## Demystification
 
